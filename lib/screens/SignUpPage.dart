@@ -16,8 +16,8 @@ class _SignUpPageState extends State<SignUpPage> {
       body: Stack(
         children: [
           Container(
-            width: 400,
-            height: 400,
+            width: MediaQuery.of(context).size.width * 0.9,
+            height: MediaQuery.of(context).size.width * 0.8,
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('assets/images/assets.png'),
@@ -25,11 +25,11 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
             ),
           ),
-          Positioned(
-            top: MediaQuery.of(context).size.height * 0.1,
-            left: MediaQuery.of(context).size.width * 0.13,
-            child: Container(
-              padding: EdgeInsets.all(20),
+          Container(
+            alignment: Alignment(0, -0.1),
+            padding: EdgeInsets.all(20),
+            child: Padding(
+              padding: const EdgeInsets.only(top: 60.0),
               child: Column(
                 children: [
                   Text(
@@ -55,7 +55,7 @@ class _SignUpPageState extends State<SignUpPage> {
           SingleChildScrollView(
             child: Container(
               width: MediaQuery.of(context).size.width * 1,
-              height: MediaQuery.of(context).size.height * 0.8,
+              // height: MediaQuery.of(context).size.height * 0.8,
               padding: EdgeInsets.all(20),
               margin: EdgeInsets.only(
                   top: MediaQuery.of(context).size.height * 0.30),
@@ -81,7 +81,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 12),
+                    SizedBox(height: 22),
                     Text('EMAIL',
                         style: TextStyle(fontWeight: FontWeight.bold)),
                     SizedBox(height: 8),
@@ -98,7 +98,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 12),
+                    SizedBox(height: 22),
                     Text('PASSWORD',
                         style: TextStyle(fontWeight: FontWeight.bold)),
                     SizedBox(height: 8),
@@ -122,7 +122,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 12),
+                    SizedBox(height: 22),
                     Text('RE-TYPE PASSWORD',
                         style: TextStyle(fontWeight: FontWeight.bold)),
                     SizedBox(height: 8),
@@ -146,7 +146,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 8),
+                    SizedBox(height: 18),
                     Padding(
                       padding: const EdgeInsets.only(top: 0),
                       child: Row(
@@ -154,9 +154,9 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(top: 20),
+                      padding: EdgeInsets.only(top: 30),
                       child: SizedBox(
-                        width: 600,
+                        width: MediaQuery.sizeOf(context).width,
                         height: 70,
                         child: ElevatedButton(
                           onPressed: () {
@@ -180,6 +180,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         ),
                       ),
                     ),
+                    SizedBox(height: 40),
                   ]),
             ),
           ),

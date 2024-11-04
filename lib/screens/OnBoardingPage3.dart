@@ -31,12 +31,12 @@ class _OnBoardingPage3State extends State<OnBoardingPage3> {
                         child: Center(
                           child: Lottie.asset('assets/images/chef.json',
                               frameRate: FrameRate.max,
-                              width: MediaQuery.sizeOf(context).width * 0.9,
-                              height: MediaQuery.sizeOf(context).height * 0.3,
+                              // width: MediaQuery.sizeOf(context).width * 0.9,
+                              // height: MediaQuery.sizeOf(context).height * 0.3,
                               fit: BoxFit.cover),
                         )),
                     Padding(
-                      padding: EdgeInsets.only(top: 170),
+                      padding: EdgeInsets.only(top: 40),
                       child: Text('Order from chosen chef',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,

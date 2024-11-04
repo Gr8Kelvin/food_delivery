@@ -32,8 +32,9 @@ class _OnboardingPage2State extends State<OnboardingPage2> {
                         child: Center(
                           child: Lottie.asset('assets/images/lottie2.json',
                               frameRate: FrameRate.max,
-                              width: MediaQuery.sizeOf(context).width * 0.9,
-                              height: MediaQuery.sizeOf(context).height * 0.3,
+                              width: 270,
+                              // width: MediaQuery.sizeOf(context).width * 0.9,
+                              // height: MediaQuery.sizeOf(context).height * 0.3,
                               fit: BoxFit.cover),
                         )),
                     SizedBox(

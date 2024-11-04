@@ -20,7 +20,7 @@ class _LocationPageState extends State<LocationPage> {
         return Column(
           children: [
             Container(
-              height: ScreenHeight,
+              height: ScreenHeight * 0.96,
               width: ScreenWidth,
               child: SingleChildScrollView(
                 child: Column(
@@ -31,8 +31,9 @@ class _LocationPageState extends State<LocationPage> {
                         child: Center(
                           child: Lottie.asset('assets/images/location2.json',
                               frameRate: FrameRate.max,
-                              width: MediaQuery.sizeOf(context).width * 0.9,
-                              height: MediaQuery.sizeOf(context).height * 0.4,
+                              width: 350,
+                              // width: MediaQuery.sizeOf(context).width * 0.9,
+                              // height: MediaQuery.sizeOf(context).height * 0.4,
                               fit: BoxFit.cover),
                         )),
                     Column(

@@ -30,8 +30,8 @@ class _OnBoardingPage4State extends State<OnBoardingPage4> {
                       child: Center(
                         child: Lottie.asset('assets/images/delivery.json',
                             frameRate: FrameRate.max,
-                            width: MediaQuery.sizeOf(context).width * 0.95,
-                            height: MediaQuery.sizeOf(context).height * 0.3,
+                            // width: MediaQuery.sizeOf(context).width * 0.95,
+                            // height: MediaQuery.sizeOf(context).height * 0.3,
                             fit: BoxFit.cover),
                       )),
                   Padding(

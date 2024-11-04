@@ -25,11 +25,11 @@ class _VerificationPageState extends State<VerificationPage> {
               ),
             ),
           ),
-          Positioned(
-            top: MediaQuery.of(context).size.height * 0.1,
-            left: MediaQuery.of(context).size.width * 0.13,
-            child: Container(
-              padding: EdgeInsets.all(20),
+          Container(
+            alignment: Alignment(0, -0.1),
+            padding: EdgeInsets.all(20),
+            child: Padding(
+              padding: const EdgeInsets.only(top: 60),
               child: Column(
                 children: [
                   Text(
@@ -63,7 +63,7 @@ class _VerificationPageState extends State<VerificationPage> {
           SingleChildScrollView(
             child: Container(
               width: MediaQuery.of(context).size.width * 1,
-              height: MediaQuery.of(context).size.height * 0.8,
+              height: MediaQuery.of(context).size.height * 0.73,
               padding: EdgeInsets.all(20),
               margin: EdgeInsets.only(
                   top: MediaQuery.of(context).size.height * 0.28),
@@ -96,15 +96,19 @@ class _VerificationPageState extends State<VerificationPage> {
                     ),
                     SizedBox(height: 8),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.max,
                       children: [
                         Container(
-                          width: 50,
+                          width: 70,
                           child: TextFormField(
                             decoration: InputDecoration(
-                              contentPadding: EdgeInsets.only(left: 20),
+                              contentPadding: EdgeInsets.symmetric(
+                                  vertical: 14, horizontal: 25),
                               hintText: '2',
-                              hintStyle: TextStyle(fontWeight: FontWeight.bold),
+                              hintStyle: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 25),
                               filled: true,
                               fillColor: Color(0xFFF1F5F9),
                               border: OutlineInputBorder(
@@ -115,12 +119,14 @@ class _VerificationPageState extends State<VerificationPage> {
                           ),
                         ),
                         Container(
-                          width: 50,
+                          width: 70,
                           child: TextFormField(
                             decoration: InputDecoration(
-                              contentPadding: EdgeInsets.only(left: 20),
+                              contentPadding: EdgeInsets.symmetric(
+                                  vertical: 14, horizontal: 25),
                               hintText: '0',
-                              hintStyle: TextStyle(fontWeight: FontWeight.bold),
+                              hintStyle: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 25),
                               filled: true,
                               fillColor: Color(0xFFF1F5F9),
                               border: OutlineInputBorder(
@@ -131,12 +137,14 @@ class _VerificationPageState extends State<VerificationPage> {
                           ),
                         ),
                         Container(
-                          width: 50,
+                          width: 70,
                           child: TextFormField(
                             decoration: InputDecoration(
-                              contentPadding: EdgeInsets.only(left: 20),
+                              contentPadding: EdgeInsets.symmetric(
+                                  vertical: 14, horizontal: 25),
                               hintText: '1',
-                              hintStyle: TextStyle(fontWeight: FontWeight.bold),
+                              hintStyle: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 25),
                               filled: true,
                               fillColor: Color(0xFFF1F5F9),
                               border: OutlineInputBorder(
@@ -147,12 +155,14 @@ class _VerificationPageState extends State<VerificationPage> {
                           ),
                         ),
                         Container(
-                          width: 50,
+                          width: 70,
                           child: TextFormField(
                             decoration: InputDecoration(
-                              contentPadding: EdgeInsets.only(left: 20),
+                              contentPadding: EdgeInsets.symmetric(
+                                  vertical: 14, horizontal: 25),
                               hintText: '5',
-                              hintStyle: TextStyle(fontWeight: FontWeight.bold),
+                              hintStyle: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 25),
                               filled: true,
                               fillColor: Color(0xFFF1F5F9),
                               border: OutlineInputBorder(
@@ -164,7 +174,7 @@ class _VerificationPageState extends State<VerificationPage> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 8),
+                    SizedBox(height: 20),
                     Padding(
                       padding: const EdgeInsets.only(top: 0),
                       child: Row(
@@ -174,7 +184,7 @@ class _VerificationPageState extends State<VerificationPage> {
                     Padding(
                       padding: EdgeInsets.only(top: 20),
                       child: SizedBox(
-                        width: 600,
+                        width: MediaQuery.sizeOf(context).width,
                         height: 70,
                         child: ElevatedButton(
                           onPressed: () {

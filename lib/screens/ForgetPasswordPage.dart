@@ -17,8 +17,8 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
       body: Stack(
         children: [
           Container(
-            width: 400,
-            height: 400,
+            width: MediaQuery.of(context).size.width * 0.9,
+            height: MediaQuery.of(context).size.width * 0.8,
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('assets/images/assets.png'),
@@ -26,11 +26,11 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
               ),
             ),
           ),
-          Positioned(
-            top: MediaQuery.of(context).size.height * 0.1,
-            left: MediaQuery.of(context).size.width * 0.13,
-            child: Container(
-              padding: EdgeInsets.all(20),
+          Container(
+            alignment: Alignment(0, -0.1),
+            padding: EdgeInsets.all(20),
+            child: Padding(
+              padding: const EdgeInsets.only(top: 70),
               child: Column(
                 children: [
                   Text(
@@ -56,7 +56,7 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
           SingleChildScrollView(
             child: Container(
               width: MediaQuery.of(context).size.width * 1,
-              height: MediaQuery.of(context).size.height * 0.8,
+              height: MediaQuery.of(context).size.height * 0.77,
               padding: EdgeInsets.all(20),
               margin: EdgeInsets.only(
                   top: MediaQuery.of(context).size.height * 0.25),
@@ -93,7 +93,7 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
                     Padding(
                       padding: EdgeInsets.only(top: 20),
                       child: SizedBox(
-                        width: 600,
+                        width: MediaQuery.sizeOf(context).width,
                         height: 70,
                         child: ElevatedButton(
                           onPressed: () {
@@ -117,6 +117,9 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
                         ),
                       ),
                     ),
+                    // SizedBox(
+                    //   height: 440,
+                    // ),
                   ]),
             ),
           ),
