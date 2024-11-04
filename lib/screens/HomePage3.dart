@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/screens/HomePage2.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class HomePage3 extends StatefulWidget {
+  const HomePage3({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<HomePage3> createState() => _HomePage3State();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePage3State extends State<HomePage3> {
   List<String> buttonTexts = ['ALL', 'Hot Dog', 'Pizza', 'Four', 'Five'];
   @override
   Widget build(BuildContext context) {
@@ -153,11 +152,9 @@ class _HomePageState extends State<HomePage> {
                       child: IconButton(
                         onPressed: () {
                           Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => HomePage2(),
-                            ),
-                          );
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => HomePage3()));
                         },
                         icon: Icon(Icons.chevron_right),
                       ),
@@ -173,44 +170,53 @@ class _HomePageState extends State<HomePage> {
                 child: Row(
                     children: List.generate(buttonTexts.length, (String) {
                   return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                    child: Container(
-                      height: 60,
-                      child: Row(
-                        children: [
-                          ElevatedButton(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 8.0, vertical: 9),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Container(
+                          // height: 150,
+                          child: ElevatedButton(
                             onPressed: () {},
                             style: ElevatedButton.styleFrom(
+                              padding:
+                                  EdgeInsets.only(left: 5, right: 5, bottom: 5),
                               backgroundColor: Colors.white,
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(50),
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              shadowColor: Colors.black.withOpacity(0.8),
+                              elevation: 15,
+                            ),
+                            child: Container(
+                              width: 110,
+                              height: 120,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(30),
+                                image: DecorationImage(
+                                  image: AssetImage('assets/images/logo4.jpg'),
+                                ),
                               ),
                             ),
-                            child: Row(
-                              children: [
-                                Container(
-                                  width: 50,
-                                  height: 50,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(40),
-                                    image: DecorationImage(
-                                      image:
-                                          AssetImage('assets/images/logo4.jpg'),
-                                    ),
-                                  ),
-                                ),
-                                Text(buttonTexts[String]),
-                              ],
-                            ),
                           ),
-                        ],
-                      ),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          buttonTexts[String],
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                      ],
                     ),
                   );
                 })),
               ),
               SizedBox(
-                height: 20,
+                height: 5,
               ),
               Expanded(
                   child: Container(
