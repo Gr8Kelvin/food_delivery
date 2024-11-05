@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
 // Pages
-import 'package:food_delivery/screens/SplashPage2.dart';
+import 'package:food_delivery/screens/splash_page_second.dart';
 
 class Splashpage extends StatefulWidget {
   const Splashpage({super.key});

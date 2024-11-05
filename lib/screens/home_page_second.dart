@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/screens/HomePage2.dart';
+import 'package:food_delivery/screens/home_page_third.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+// import '../screens/HomePage.dart';
+
+class HomePage2 extends StatefulWidget {
+  const HomePage2({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<HomePage2> createState() => _HomePage2State();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePage2State extends State<HomePage2> {
   List<String> buttonTexts = ['ALL', 'Hot Dog', 'Pizza', 'Four', 'Five'];
   @override
   Widget build(BuildContext context) {
@@ -64,9 +66,7 @@ class _HomePageState extends State<HomePage> {
                 color: const Color.fromARGB(179, 214, 211, 211),
                 shape: BoxShape.circle),
             child: IconButton(
-              onPressed: () {
-                // Scaffold.of(context).openDrawer();
-              },
+              onPressed: () {},
               icon: Icon(Icons.menu),
             ),
           ),
@@ -75,85 +75,7 @@ class _HomePageState extends State<HomePage> {
           Padding(
               padding: const EdgeInsets.only(right: 20.0),
               child: GestureDetector(
-                onTap: () {
-                  showDialog(
-                      context: context,
-                      builder: (context) {
-                        return AlertDialog(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          backgroundColor: Colors.transparent,
-                          contentPadding: EdgeInsets.all(0),
-                          content: Container(
-                            width: 300,
-                            height: 400,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(25),
-                                image: DecorationImage(
-                                    image: AssetImage('assets/images/BG.png'),
-                                    fit: BoxFit.cover)),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: <Widget>[
-                                Text(
-                                  'Hurry Offers!',
-                                  style: TextStyle(
-                                      fontSize: 40,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white),
-                                ),
-                                Text(
-                                  '#1243CD2',
-                                  style: TextStyle(
-                                      fontSize: 28,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white),
-                                ),
-                                Text(
-                                  'Use the cupon get 25% discount',
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white),
-                                ),
-                                Container(
-                                  height: 64,
-                                  width: 262,
-                                  // decoration: BoxDecoration(
-                                  //     // borderRadius: BorderRadius.circular(10),
-                                  //     ),
-                                  color: Colors.white,
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(2.0),
-                                    child: Container(
-                                      // height: 60,
-                                      // width: 260,
-                                      child: ElevatedButton(
-                                          onPressed: () {},
-                                          style: ElevatedButton.styleFrom(
-                                              backgroundColor:
-                                                  const Color.fromARGB(
-                                                      255, 232, 135, 16),
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(10),
-                                              )),
-                                          child: Text(
-                                            'GOT IT',
-                                            style: TextStyle(
-                                                fontSize: 18,
-                                                color: Colors.white),
-                                          )),
-                                    ),
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                        );
-                      });
-                },
+                onTap: () {},
                 child: Container(
                   height: 50,
                   width: 50,
@@ -232,11 +154,9 @@ class _HomePageState extends State<HomePage> {
                       child: IconButton(
                         onPressed: () {
                           Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => HomePage2(),
-                            ),
-                          );
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => HomePage3()));
                         },
                         icon: Icon(Icons.chevron_right),
                       ),
@@ -252,44 +172,47 @@ class _HomePageState extends State<HomePage> {
                 child: Row(
                     children: List.generate(buttonTexts.length, (String) {
                   return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 8.0, vertical: 9),
                     child: Container(
-                      height: 60,
-                      child: Row(
-                        children: [
-                          ElevatedButton(
-                            onPressed: () {},
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.white,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(50),
+                      // height: 150,
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          padding:
+                              EdgeInsets.only(left: 5, right: 5, bottom: 5),
+                          backgroundColor: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          shadowColor: Colors.black.withOpacity(0.8),
+                          elevation: 15,
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Container(
+                              width: 110,
+                              height: 120,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(30),
+                                image: DecorationImage(
+                                  image: AssetImage('assets/images/logo4.jpg'),
+                                ),
                               ),
                             ),
-                            child: Row(
-                              children: [
-                                Container(
-                                  width: 50,
-                                  height: 50,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(40),
-                                    image: DecorationImage(
-                                      image:
-                                          AssetImage('assets/images/logo4.jpg'),
-                                    ),
-                                  ),
-                                ),
-                                Text(buttonTexts[String]),
-                              ],
-                            ),
-                          ),
-                        ],
+                            Text(buttonTexts[String]),
+                          ],
+                        ),
                       ),
                     ),
                   );
                 })),
               ),
               SizedBox(
-                height: 20,
+                height: 5,
               ),
               Expanded(
                   child: Container(

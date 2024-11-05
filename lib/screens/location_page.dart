@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/screens/HomePage.dart';
+import 'package:food_delivery/screens/home_page.dart';
 import 'package:lottie/lottie.dart';
 
 class LocationPage extends StatefulWidget {

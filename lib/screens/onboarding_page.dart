@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/screens/OnBoardingpage4.dart';
-import 'package:food_delivery/screens/OnboardingPage2.dart';
+import 'package:food_delivery/screens/onboarding_page_fourth.dart';
+import 'package:food_delivery/screens/onboarding_page_second.dart';
 import 'package:lottie/lottie.dart';
 
 class OnBoardingPage1 extends StatefulWidget {

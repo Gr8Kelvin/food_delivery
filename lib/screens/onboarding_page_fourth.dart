@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/screens/OnBoardingPage3.dart';
-import 'package:food_delivery/screens/OnBoardingpage4.dart';
+import 'package:food_delivery/screens/login_page.dart';
 import 'package:lottie/lottie.dart';
 
-class OnboardingPage2 extends StatefulWidget {
-  const OnboardingPage2({super.key});
+class OnBoardingPage4 extends StatefulWidget {
+  const OnBoardingPage4({super.key});
 
   @override
-  State<OnboardingPage2> createState() => _OnboardingPage2State();
+  State<OnBoardingPage4> createState() => _OnBoardingPage4State();
 }
 
-class _OnboardingPage2State extends State<OnboardingPage2> {
+class _OnBoardingPage4State extends State<OnBoardingPage4> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,22 +18,23 @@ class _OnboardingPage2State extends State<OnboardingPage2> {
         SizedBox(
           height: 40,
         ),
-        Lottie.asset('assets/images/lottie2.json',
+        Lottie.asset('assets/images/delivery.json',
             frameRate: FrameRate.max,
-            width: 270,
-            // width: MediaQuery.sizeOf(context).width * 0.9,
+            // width: MediaQuery.sizeOf(context).width * 0.95,
             // height: MediaQuery.sizeOf(context).height * 0.3,
             fit: BoxFit.cover),
         SizedBox(
-          height: 50,
+          height: 30,
         ),
-        Text('All your favorites',
+        Text('Free delivery offers',
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 30,
               fontFamily: 'Roboto',
             )),
-        SizedBox(height: 20),
+        SizedBox(
+          height: 30,
+        ),
         Text(
           'Get all your loved foods in one once place,',
           style: TextStyle(fontSize: 18, fontFamily: 'Lato'),
@@ -44,33 +44,34 @@ class _OnboardingPage2State extends State<OnboardingPage2> {
           style: TextStyle(fontSize: 17, fontFamily: 'Lato'),
         ),
         SizedBox(
-          height: 20,
+          height: 30,
         ),
         Container(
           height: 10,
-          width: 250,
+          width: 300,
           decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage('assets/images/slide1.png'),
+                image: AssetImage('assets/images/slide3.png'),
                 fit: BoxFit.contain),
           ),
         ),
         Expanded(
           child: SizedBox(
-            height: 20,
+            height: 30,
           ),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
           child: SizedBox(
             width: double.infinity,
             height: 60,
             child: ElevatedButton(
               onPressed: () {
-                Navigator.push(
+                Navigator.of(context).popUntil((route) => route.isFirst);
+                Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => OnBoardingPage3(),
+                    builder: (context) => LoginPage(),
                   ),
                 );
               },
@@ -80,38 +81,8 @@ class _OnboardingPage2State extends State<OnboardingPage2> {
                     borderRadius: BorderRadius.circular(10),
                   )),
               child: const Text(
-                'NEXT',
+                'GET STARTED',
                 style: TextStyle(color: Colors.white, fontSize: 15),
-              ),
-            ),
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.only(top: 0),
-          child: SizedBox(
-            width: 350,
-            height: 60,
-            child: ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => OnBoardingPage4(),
-                  ),
-                );
-              },
-              style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.transparent,
-                  shadowColor: Colors.transparent,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  )),
-              child: const Text(
-                'Skip',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 16,
-                ),
               ),
             ),
           ),
