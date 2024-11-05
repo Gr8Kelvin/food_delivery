@@ -73,21 +73,20 @@ class _HomePage2State extends State<HomePage2> {
         ),
         actions: [
           Padding(
-            padding: const EdgeInsets.all(7.0),
-            child: Container(
-              height: 50,
-              width: 50,
-              // padding: EdgeInsets.all(5),
-              decoration: BoxDecoration(
-                  color: Colors.blue[900], shape: BoxShape.circle),
-              child: IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.shopping_bag_rounded,
-                    color: Colors.white,
-                  )),
-            ),
-          ),
+              padding: const EdgeInsets.only(right: 20.0),
+              child: GestureDetector(
+                onTap: () {},
+                child: Container(
+                  height: 50,
+                  width: 50,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
+                      color: const Color.fromARGB(255, 4, 32, 86),
+                      image: DecorationImage(
+                        image: AssetImage('assets/images/shopping-bag.png'),
+                      )),
+                ),
+              )),
         ],
       ),
       body: SingleChildScrollView(

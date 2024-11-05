@@ -65,7 +65,7 @@ class _HomePageState extends State<HomePage> {
                 shape: BoxShape.circle),
             child: IconButton(
               onPressed: () {
-                Scaffold.of(context).openDrawer();
+                // Scaffold.of(context).openDrawer();
               },
               icon: Icon(Icons.menu),
             ),
@@ -73,22 +73,98 @@ class _HomePageState extends State<HomePage> {
         ),
         actions: [
           Padding(
-            padding: const EdgeInsets.all(7.0),
-            child: Container(
-              height: 50,
-              width: 50,
-              // padding: EdgeInsets.all(5),
-              decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 5, 36, 149),
-                  shape: BoxShape.circle),
-              child: IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.shopping_bag_rounded,
-                    color: Colors.white,
-                  )),
-            ),
-          ),
+              padding: const EdgeInsets.only(right: 20.0),
+              child: GestureDetector(
+                onTap: () {
+                  showDialog(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          backgroundColor: Colors.transparent,
+                          contentPadding: EdgeInsets.all(0),
+                          content: Container(
+                            width: 300,
+                            height: 400,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(25),
+                                image: DecorationImage(
+                                    image: AssetImage('assets/images/BG.png'),
+                                    fit: BoxFit.cover)),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: <Widget>[
+                                Text(
+                                  'Hurry Offers!',
+                                  style: TextStyle(
+                                      fontSize: 40,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white),
+                                ),
+                                Text(
+                                  '#1243CD2',
+                                  style: TextStyle(
+                                      fontSize: 28,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white),
+                                ),
+                                Text(
+                                  'Use the cupon get 25% discount',
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white),
+                                ),
+                                Container(
+                                  height: 64,
+                                  width: 262,
+                                  // decoration: BoxDecoration(
+                                  //     // borderRadius: BorderRadius.circular(10),
+                                  //     ),
+                                  color: Colors.white,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(2.0),
+                                    child: Container(
+                                      // height: 60,
+                                      // width: 260,
+                                      child: ElevatedButton(
+                                          onPressed: () {},
+                                          style: ElevatedButton.styleFrom(
+                                              backgroundColor:
+                                                  const Color.fromARGB(
+                                                      255, 232, 135, 16),
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(10),
+                                              )),
+                                          child: Text(
+                                            'GOT IT',
+                                            style: TextStyle(
+                                                fontSize: 18,
+                                                color: Colors.white),
+                                          )),
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        );
+                      });
+                },
+                child: Container(
+                  height: 50,
+                  width: 50,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
+                      color: const Color.fromARGB(255, 4, 32, 86),
+                      image: DecorationImage(
+                        image: AssetImage('assets/images/shopping-bag.png'),
+                      )),
+                ),
+              )),
         ],
       ),
       body: SingleChildScrollView(
