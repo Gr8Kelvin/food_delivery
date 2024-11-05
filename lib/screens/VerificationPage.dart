@@ -60,154 +60,143 @@ class _VerificationPageState extends State<VerificationPage> {
               ),
             ),
           ),
-          SingleChildScrollView(
-            child: Container(
-              width: MediaQuery.of(context).size.width * 1,
-              height: MediaQuery.of(context).size.height * 0.73,
-              padding: EdgeInsets.all(20),
-              margin: EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height * 0.28),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text('CODE',
-                            style: TextStyle(fontWeight: FontWeight.bold)),
-                        Spacer(),
-                        GestureDetector(
-                          onTap: () {},
-                          child: Text('Resend',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  decoration: TextDecoration.underline)),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 8.0),
-                          child: Text('in.50sec',
-                              style: TextStyle(fontWeight: FontWeight.w300)),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 8),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Container(
-                          width: 70,
-                          child: TextFormField(
-                            decoration: InputDecoration(
-                              contentPadding: EdgeInsets.symmetric(
-                                  vertical: 14, horizontal: 25),
-                              hintText: '2',
-                              hintStyle: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 25),
-                              filled: true,
-                              fillColor: Color(0xFFF1F5F9),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
-                                borderSide: BorderSide.none,
-                              ),
-                            ),
-                          ),
-                        ),
-                        Container(
-                          width: 70,
-                          child: TextFormField(
-                            decoration: InputDecoration(
-                              contentPadding: EdgeInsets.symmetric(
-                                  vertical: 14, horizontal: 25),
-                              hintText: '0',
-                              hintStyle: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 25),
-                              filled: true,
-                              fillColor: Color(0xFFF1F5F9),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
-                                borderSide: BorderSide.none,
-                              ),
-                            ),
-                          ),
-                        ),
-                        Container(
-                          width: 70,
-                          child: TextFormField(
-                            decoration: InputDecoration(
-                              contentPadding: EdgeInsets.symmetric(
-                                  vertical: 14, horizontal: 25),
-                              hintText: '1',
-                              hintStyle: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 25),
-                              filled: true,
-                              fillColor: Color(0xFFF1F5F9),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
-                                borderSide: BorderSide.none,
-                              ),
-                            ),
-                          ),
-                        ),
-                        Container(
-                          width: 70,
-                          child: TextFormField(
-                            decoration: InputDecoration(
-                              contentPadding: EdgeInsets.symmetric(
-                                  vertical: 14, horizontal: 25),
-                              hintText: '5',
-                              hintStyle: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 25),
-                              filled: true,
-                              fillColor: Color(0xFFF1F5F9),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
-                                borderSide: BorderSide.none,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 20),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 0),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(top: 20),
-                      child: SizedBox(
-                        width: MediaQuery.sizeOf(context).width,
-                        height: 70,
-                        child: ElevatedButton(
-                          onPressed: () {
-                            Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => LoginPage()));
-                          },
-                          style: ElevatedButton.styleFrom(
-                              backgroundColor:
-                                  const Color.fromARGB(255, 241, 101, 20),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10),
-                              )),
-                          child: Text(
-                            'VERIFY',
-                            style: TextStyle(color: Colors.white, fontSize: 15),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ]),
+          Container(
+            width: double.infinity,
+            // height: MediaQuery.of(context).size.height * 0.73,
+            padding: EdgeInsets.all(20),
+            margin:
+                EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.28),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(20), topRight: Radius.circular(20)),
             ),
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text('CODE', style: TextStyle(fontWeight: FontWeight.bold)),
+                  Spacer(),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Text('Resend',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            decoration: TextDecoration.underline)),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8.0),
+                    child: Text('in.50sec',
+                        style: TextStyle(fontWeight: FontWeight.w300)),
+                  ),
+                ],
+              ),
+              SizedBox(height: 8),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Container(
+                    width: 70,
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                        contentPadding:
+                            EdgeInsets.symmetric(vertical: 14, horizontal: 25),
+                        hintText: '2',
+                        hintStyle: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 25),
+                        filled: true,
+                        fillColor: Color(0xFFF1F5F9),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide.none,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    width: 70,
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                        contentPadding:
+                            EdgeInsets.symmetric(vertical: 14, horizontal: 25),
+                        hintText: '0',
+                        hintStyle: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 25),
+                        filled: true,
+                        fillColor: Color(0xFFF1F5F9),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide.none,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    width: 70,
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                        contentPadding:
+                            EdgeInsets.symmetric(vertical: 14, horizontal: 25),
+                        hintText: '1',
+                        hintStyle: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 25),
+                        filled: true,
+                        fillColor: Color(0xFFF1F5F9),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide.none,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    width: 70,
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                        contentPadding:
+                            EdgeInsets.symmetric(vertical: 14, horizontal: 25),
+                        hintText: '5',
+                        hintStyle: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 25),
+                        filled: true,
+                        fillColor: Color(0xFFF1F5F9),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide.none,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 20),
+              Padding(
+                padding: EdgeInsets.only(top: 20),
+                child: SizedBox(
+                  width: double.infinity,
+                  height: 70,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushReplacement(context,
+                          MaterialPageRoute(builder: (context) => LoginPage()));
+                    },
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor:
+                            const Color.fromARGB(255, 241, 101, 20),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        )),
+                    child: Text(
+                      'VERIFY',
+                      style: TextStyle(color: Colors.white, fontSize: 15),
+                    ),
+                  ),
+                ),
+              ),
+            ]),
           ),
           Positioned(
             top: 50, // Adjust positioning as needed

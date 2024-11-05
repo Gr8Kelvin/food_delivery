@@ -53,75 +53,71 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
               ),
             ),
           ),
-          SingleChildScrollView(
-            child: Container(
-              width: MediaQuery.of(context).size.width * 1,
-              height: MediaQuery.of(context).size.height * 0.77,
-              padding: EdgeInsets.all(20),
-              margin: EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height * 0.25),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('EMAIL',
-                        style: TextStyle(fontWeight: FontWeight.bold)),
-                    SizedBox(height: 8),
-                    TextFormField(
-                      decoration: InputDecoration(
-                        contentPadding: EdgeInsets.only(top: 40, left: 20),
-                        hintText: 'example@gmail.com',
-                        hintStyle: TextStyle(fontWeight: FontWeight.w200),
-                        filled: true,
-                        fillColor: Color(0xFFF1F5F9),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide.none,
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 8),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 0),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(top: 20),
-                      child: SizedBox(
-                        width: MediaQuery.sizeOf(context).width,
-                        height: 70,
-                        child: ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => VerificationPage(),
-                              ),
-                            );
-                          },
-                          style: ElevatedButton.styleFrom(
-                              backgroundColor:
-                                  const Color.fromARGB(255, 241, 101, 20),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10),
-                              )),
-                          child: Text(
-                            'SEND CODE',
-                            style: TextStyle(color: Colors.white, fontSize: 15),
-                          ),
-                        ),
-                      ),
-                    ),
-                    // SizedBox(
-                    //   height: 440,
-                    // ),
-                  ]),
+          Container(
+            width: double.infinity,
+            // height: MediaQuery.of(context).size.height * 0.77,
+            padding: EdgeInsets.all(20),
+            margin:
+                EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.25),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(20), topRight: Radius.circular(20)),
             ),
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Text('EMAIL', style: TextStyle(fontWeight: FontWeight.bold)),
+              SizedBox(height: 8),
+              TextFormField(
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.only(top: 40, left: 20),
+                  hintText: 'example@gmail.com',
+                  hintStyle: TextStyle(fontWeight: FontWeight.w200),
+                  filled: true,
+                  fillColor: Color(0xFFF1F5F9),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide.none,
+                  ),
+                ),
+              ),
+              SizedBox(height: 8),
+              Padding(
+                padding: const EdgeInsets.only(top: 0),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              SizedBox(
+                width: MediaQuery.sizeOf(context).width,
+                height: 70,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => VerificationPage(),
+                      ),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color.fromARGB(255, 241, 101, 20),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      )),
+                  child: Text(
+                    'SEND CODE',
+                    style: TextStyle(color: Colors.white, fontSize: 15),
+                  ),
+                ),
+              ),
+              // SizedBox(
+              //   height: 440,
+              // ),
+            ]),
           ),
           Positioned(
             top: 50,

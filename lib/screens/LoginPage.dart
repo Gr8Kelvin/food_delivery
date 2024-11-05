@@ -57,216 +57,206 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
           ),
-          SingleChildScrollView(
-            child: Container(
-              width: MediaQuery.of(context).size.width * 1,
-              // height: MediaQuery.of(context).size.height * 0.8,
-              padding: EdgeInsets.all(25),
-              margin: EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height * 0.27),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
+          Container(
+            width: double.infinity,
+            // height: MediaQuery.of(context).size.height * 0.8,
+            padding: EdgeInsets.all(25),
+            margin:
+                EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.27),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(20), topRight: Radius.circular(20)),
+            ),
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Text('EMAIL', style: TextStyle(fontWeight: FontWeight.bold)),
+              SizedBox(height: 8),
+              TextFormField(
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.only(top: 40, left: 20),
+                  hintText: 'example@gmail.com',
+                  hintStyle: TextStyle(fontWeight: FontWeight.w200),
+                  filled: true,
+                  fillColor: Color(0xFFF1F5F9),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide.none,
+                  ),
+                ),
               ),
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+              SizedBox(height: 30),
+              Text(
+                'PASSWORD',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 8),
+              TextFormField(
+                obscureText: true,
+                decoration: InputDecoration(
+                  suffixIcon: IconButton(
+                      onPressed: () {},
+                      icon: Icon(
+                        Icons.visibility,
+                        color: Colors.grey,
+                      )),
+                  contentPadding: EdgeInsets.only(top: 40, left: 20),
+                  hintText: '* * * * * * * * * *',
+                  hintStyle: TextStyle(fontWeight: FontWeight.w200),
+                  filled: true,
+                  fillColor: Color(0xFFF1F5F9),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide.none,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 8),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text('EMAIL',
-                        style: TextStyle(fontWeight: FontWeight.bold)),
-                    SizedBox(height: 8),
-                    TextFormField(
-                      decoration: InputDecoration(
-                        contentPadding: EdgeInsets.only(top: 40, left: 20),
-                        hintText: 'example@gmail.com',
-                        hintStyle: TextStyle(fontWeight: FontWeight.w200),
-                        filled: true,
-                        fillColor: Color(0xFFF1F5F9),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide.none,
-                        ),
-                      ),
+                    SizedBox(
+                      height: 10,
                     ),
-                    SizedBox(height: 30),
-                    Text(
-                      'PASSWORD',
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                    Checkbox(
+                      value: checkbox,
+                      onChanged: (bool? value) {
+                        setState(() {
+                          checkbox = value ?? false;
+                        });
+                      },
                     ),
-                    SizedBox(height: 8),
-                    TextFormField(
-                      obscureText: true,
-                      decoration: InputDecoration(
-                        suffixIcon: IconButton(
-                            onPressed: () {},
-                            icon: Icon(
-                              Icons.visibility,
-                              color: Colors.grey,
-                            )),
-                        contentPadding: EdgeInsets.only(top: 40, left: 20),
-                        hintText: '* * * * * * * * * *',
-                        hintStyle: TextStyle(fontWeight: FontWeight.w200),
-                        filled: true,
-                        fillColor: Color(0xFFF1F5F9),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide.none,
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 8),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Checkbox(
-                            value: checkbox,
-                            onChanged: (bool? value) {
-                              setState(() {
-                                checkbox = value ?? false;
-                              });
-                            },
-                          ),
-                          Text('Remember me'),
-                          Spacer(),
-                          TextButton(
-                              onPressed: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            ForgetPasswordPage()));
-                              },
-                              child: Text(
-                                'Forgot Password',
-                                style: TextStyle(
-                                  color: Colors.orange,
-                                ),
-                              ))
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(top: 20),
-                      child: SizedBox(
-                        width: MediaQuery.sizeOf(context).width,
-                        height: 70,
-                        child: ElevatedButton(
-                          onPressed: () {
-                            Navigator.pushReplacement(
+                    Text('Remember me'),
+                    Spacer(),
+                    TextButton(
+                        onPressed: () {
+                          Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => LocationPage(),
-                              ),
-                            );
-                          },
-                          style: ElevatedButton.styleFrom(
-                              backgroundColor:
-                                  const Color.fromARGB(255, 241, 101, 20),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10),
-                              )),
-                          child: Text(
-                            'LOG IN',
-                            style: TextStyle(color: Colors.white, fontSize: 15),
+                                  builder: (context) => ForgetPasswordPage()));
+                        },
+                        child: Text(
+                          'Forgot Password',
+                          style: TextStyle(
+                            color: Colors.orange,
                           ),
-                        ),
+                        ))
+                  ],
+                ),
+              ),
+              SizedBox(
+                width: MediaQuery.sizeOf(context).width,
+                height: 70,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LocationPage(),
                       ),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color.fromARGB(255, 241, 101, 20),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      )),
+                  child: Text(
+                    'LOG IN',
+                    style: TextStyle(color: Colors.white, fontSize: 15),
+                  ),
+                ),
+              ),
+              Expanded(
+                  child: SizedBox(
+                height: 10,
+              )),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Don\'t have an account?',
+                    style: TextStyle(fontSize: 18),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SignUpPage()));
+                    },
+                    child: Text(
+                      '     SIGN UP',
+                      style: TextStyle(
+                          color: Colors.orange,
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold),
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                        top: 40,
-                        bottom: 40,
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'Don\'t have an account?',
-                            style: TextStyle(fontSize: 18),
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => SignUpPage()));
-                            },
-                            child: Text(
-                              '     SIGN UP',
-                              style: TextStyle(
-                                  color: Colors.orange,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold),
+                  )
+                ],
+              ),
+              Stack(children: [
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                      bottom: 10,
+                    ),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          'Or',
+                          style: TextStyle(fontSize: 18),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            GestureDetector(
+                              onTap: () {},
+                              child: Container(
+                                height: 90,
+                                width: 90,
+                                decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                        image: AssetImage(
+                                            'assets/images/facebook.png'))),
+                              ),
                             ),
-                          )
-                        ],
-                      ),
-                    ),
-                    Stack(children: [
-                      Align(
-                        alignment: Alignment.bottomCenter,
-                        child: Padding(
-                          padding: EdgeInsets.only(
-                            bottom: 10,
-                          ),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Text(
-                                'Or',
-                                style: TextStyle(fontSize: 18),
+                            GestureDetector(
+                              onTap: () {},
+                              child: Container(
+                                height: 90,
+                                width: 90,
+                                decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                        image: AssetImage(
+                                            'assets/images/twitter.png'))),
                               ),
-                              SizedBox(
-                                height: 5,
+                            ),
+                            GestureDetector(
+                              onTap: () {},
+                              child: Container(
+                                height: 90,
+                                width: 90,
+                                decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                        image: AssetImage(
+                                            'assets/images/apple.png'))),
                               ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  GestureDetector(
-                                    onTap: () {},
-                                    child: Container(
-                                      height: 90,
-                                      width: 90,
-                                      decoration: BoxDecoration(
-                                          image: DecorationImage(
-                                              image: AssetImage(
-                                                  'assets/images/facebook.png'))),
-                                    ),
-                                  ),
-                                  GestureDetector(
-                                    onTap: () {},
-                                    child: Container(
-                                      height: 90,
-                                      width: 90,
-                                      decoration: BoxDecoration(
-                                          image: DecorationImage(
-                                              image: AssetImage(
-                                                  'assets/images/twitter.png'))),
-                                    ),
-                                  ),
-                                  GestureDetector(
-                                    onTap: () {},
-                                    child: Container(
-                                      height: 90,
-                                      width: 90,
-                                      decoration: BoxDecoration(
-                                          image: DecorationImage(
-                                              image: AssetImage(
-                                                  'assets/images/apple.png'))),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
-                      ),
-                    ]),
-                  ]),
-            ),
+                      ],
+                    ),
+                  ),
+                ),
+              ]),
+            ]),
           ),
         ],
       ),

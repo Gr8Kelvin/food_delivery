@@ -64,7 +64,9 @@ class _HomePageState extends State<HomePage> {
                 color: const Color.fromARGB(179, 214, 211, 211),
                 shape: BoxShape.circle),
             child: IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Scaffold.of(context).openDrawer();
+              },
               icon: Icon(Icons.menu),
             ),
           ),
@@ -77,7 +79,8 @@ class _HomePageState extends State<HomePage> {
               width: 50,
               // padding: EdgeInsets.all(5),
               decoration: BoxDecoration(
-                  color: Colors.blue[900], shape: BoxShape.circle),
+                  color: const Color.fromARGB(255, 5, 36, 149),
+                  shape: BoxShape.circle),
               child: IconButton(
                   onPressed: () {},
                   icon: Icon(
