@@ -1,66 +1,78 @@
+import 'dart:convert';
+import 'dart:ffi';
+
+List<PhoneModel> phoneModelFromJson(String str) =>
+    List<PhoneModel>.from(json.decode(str).map((x) => PhoneModel.fromJson(x)));
+
+String phoneModelToJson(List<PhoneModel> data) =>
+    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+
 class PhoneModel {
-    String? id;
-    String? name;
-    Data? data;
+  String? id;
+  String? name;
+  Data? data;
 
-    PhoneModel({
-        this.id,
-        this.name,
-        this.data,
-    });
+  PhoneModel({
+    this.id,
+    this.name,
+    this.data,
+  });
 
-    factory PhoneModel.fromJson(Map<String, dynamic> json) => PhoneModel(
+  factory PhoneModel.fromJson(Map<String, dynamic> json) => PhoneModel(
         id: json["id"],
         name: json["name"],
-        data: Data.fromJson(json["data"]),
-    );
+        data: json['data'] == null ? null : Data.fromJson(json["data"]),
+      );
 
-    
-    
+  Map<String, dynamic> toJson() => {
+        "id": id,
+        "name": name,
+        "data": data?.toJson(),
+      };
 }
 
 class Data {
-    String? dataColor;
-    String? dataCapacity;
-    int? capacityGb;
-    double? dataPrice;
-    String? dataGeneration;
-    int? year;
-    String? cpuModel;
-    String? hardDiskSize;
-    String? strapColour;
-    String? caseSize;
-    String? color;
-    String? description;
-    String? capacity;
-    double? screenSize;
-    String? generation;
-    String? price;
+  String? dataColor;
+  String? dataCapacity;
+  int? capacityGb;
+  dynamic dataPrice;
+  String? dataGeneration;
+  int? year;
+  String? cpuModel;
+  String? hardDiskSize;
+  String? strapColour;
+  String? caseSize;
+  String? color;
+  String? description;
+  String? capacity;
+  dynamic screenSize;
+  String? generation;
+  double? price;
 
-    Data({
-        this.dataColor,
-        this.dataCapacity,
-        this.capacityGb,
-        this.dataPrice,
-        this.dataGeneration,
-        this.year,
-        this.cpuModel,
-        this.hardDiskSize,
-        this.strapColour,
-        this.caseSize,
-        this.color,
-        this.description,
-        this.capacity,
-        this.screenSize,
-        this.generation,
-        this.price,
-    });
+  Data({
+    this.dataColor,
+    this.dataCapacity,
+    this.capacityGb,
+    this.dataPrice,
+    this.dataGeneration,
+    this.year,
+    this.cpuModel,
+    this.hardDiskSize,
+    this.strapColour,
+    this.caseSize,
+    this.color,
+    this.description,
+    this.capacity,
+    this.screenSize,
+    this.generation,
+    this.price,
+  });
 
-    factory Data.fromJson(Map<String, dynamic> json) => Data(
+  factory Data.fromJson(Map<String, dynamic> json) => Data(
         dataColor: json["color"],
         dataCapacity: json["capacity"],
         capacityGb: json["capacity GB"],
-        dataPrice: json["price"].toDouble(),
+        dataPrice: json["price"],
         dataGeneration: json["generation"],
         year: json["year"],
         cpuModel: json["CPU model"],
@@ -70,12 +82,12 @@ class Data {
         color: json["Color"],
         description: json["Description"],
         capacity: json["Capacity"],
-        screenSize: json["Screen size"].toDouble(),
+        screenSize: json["Screen size"],
         generation: json["Generation"],
-        price: json["Price"],
-    );
+        price: json["price"],
+      );
 
-    Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toJson() => {
         "color": dataColor,
         "capacity": dataCapacity,
         "capacity GB": capacityGb,
@@ -92,5 +104,5 @@ class Data {
         "Screen size": screenSize,
         "Generation": generation,
         "Price": price,
-    };
+      };
 }

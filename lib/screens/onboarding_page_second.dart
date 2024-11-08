@@ -71,7 +71,7 @@ class _OnboardingPage2State extends State<OnboardingPage2> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => providerwidget(),
+                    builder: (context) => ProviderWidget(),
                   ),
                 );
               },
