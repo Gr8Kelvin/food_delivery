@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:food_delivery/screens/forget_password_page.dart';
 import 'package:food_delivery/screens/location_page.dart';
@@ -5,25 +7,33 @@ import 'package:food_delivery/screens/singup_page.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:logger/logger.dart';
 
 final ValueNotifier<UserCredential?> userCredential = ValueNotifier(null);
 
-Future<dynamic> signInWithGoogle() async {
+final GoogleSignIn googleSignIn = GoogleSignIn();
+
+Future<void> signInWithGoogle() async {
   try {
-    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+    final GoogleSignInAccount? googleSignInAccount =
+        await googleSignIn.signIn();
+    final GoogleSignInAuthentication googleSignInAuthentication =
+        await googleSignInAccount!.authentication;
 
-    final GoogleSignInAuthentication? googleAuth =
-        await googleUser?.authentication;
-
-    final credential = GoogleAuthProvider.credential(
-      accessToken: googleAuth?.accessToken,
-      idToken: googleAuth?.idToken,
+    final AuthCredential credential = GoogleAuthProvider.credential(
+      accessToken: googleSignInAuthentication.accessToken,
+      idToken: googleSignInAuthentication.idToken,
     );
 
-    return await FirebaseAuth.instance.signInWithCredential(credential);
-  } on Exception catch (e) {
-    // TODO
-    print('exception->$e');
+    final UserCredential userCredential =
+        await FirebaseAuth.instance.signInWithCredential(credential);
+    final User? user = userCredential.user;
+
+    Logger().d(user);
+
+    // Use the user object for further operations or navigate to a new screen.
+  } catch (e) {
+    print(e.toString());
   }
 }
 
@@ -333,12 +343,15 @@ class _LoginPageState extends State<LoginPage> {
                                     ),
                                     GestureDetector(
                                       onTap: () async {
-                                        userCredential.value =
-                                            await signInWithGoogle();
-                                        if (userCredential.value != null &&
-                                            userCredential.value!.user != null)
-                                          print(userCredential
-                                              .value!.user!.email);
+
+                                        await signInWithGoogle();
+                                        // userCredential.value =
+                                        //     await signInWithGoogle();
+
+                                        // if (userCredential.value != null &&
+                                        //     userCredential.value!.user != null)
+                                        //   print(userCredential
+                                        //       .value!.user!.email);
                                       },
                                       child: Container(
                                         height: 85,

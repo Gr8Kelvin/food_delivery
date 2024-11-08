@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery/screens/onboarding_page_third.dart';
 import 'package:food_delivery/screens/onboarding_page_fourth.dart';
 import 'package:lottie/lottie.dart';
+import '../screens/provider_screen.dart';
 
 class OnboardingPage2 extends StatefulWidget {
   const OnboardingPage2({super.key});
@@ -70,7 +71,7 @@ class _OnboardingPage2State extends State<OnboardingPage2> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => OnBoardingPage3(),
+                    builder: (context) => providerwidget(),
                   ),
                 );
               },
