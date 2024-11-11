@@ -4,6 +4,7 @@ import 'package:food_delivery/model/user_model.dart';
 import 'package:http/http.dart' as http;
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:logger/logger.dart';
+import 'package:intl/intl.dart';
 
 class ProviderWidget extends StatefulWidget {
   const ProviderWidget({super.key});
@@ -13,7 +14,9 @@ class ProviderWidget extends StatefulWidget {
 }
 
 class _ProviderWidgetState extends State<ProviderWidget> {
-  List<PhoneModel> phoneData = [];
+  // Cards? cardData;
+
+  List<Cards?> cardData = [];
 
   bool isloading = true;
 
@@ -31,14 +34,18 @@ class _ProviderWidgetState extends State<ProviderWidget> {
         Logger().d(value);
 
         setState(() {
-          phoneData = value;
+          cardData = value;
           isloading = false;
+        });
+
+        returnbool().then((val) {
+          Logger().d(val);
         });
       },
     );
   }
 
-  int n = 0;
+  // DateTime now = cardData[value]?.updatedAt;
 
   Future<String> returnString() async {
     String firstName = "Steven";
@@ -52,17 +59,19 @@ class _ProviderWidgetState extends State<ProviderWidget> {
     return myName;
   }
 
-  Future<List<PhoneModel>> fetchAlbum() async {
-    final response = await http
-        .get(Uri.parse('https://api.restful-api.dev/objects?id=3&id=5&id=10'));
+  Future<List<Cards?>> fetchAlbum() async {
+    final response =
+        await http.get(Uri.parse('https://cat-fact.herokuapp.com/facts/'));
 
     Logger().d(response.body);
 
     if (response.statusCode == 200) {
       for (var item in jsonDecode(response.body)) {
-        phoneData.add(PhoneModel.fromJson(item));
+        cardData.add(Cards.fromJson(item));
       }
-      return phoneData;
+      // cardData = Cards.fromJson(jsonDecode(response.body));
+
+      return cardData;
     } else {
       // If the server did not return a 200 OK response,
       // then throw an exception.
@@ -72,6 +81,12 @@ class _ProviderWidgetState extends State<ProviderWidget> {
 
   @override
   Widget build(BuildContext context) {
+    String formatDate(DateTime? date) {
+      // final DateTime parsedDate = DateTime.parse(dateTime);
+      final DateFormat formatter = DateFormat('E, d MMM yyyy HH:mm:ss');
+      return formatter.format(date!);
+    }
+
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.cyan,
@@ -80,18 +95,21 @@ class _ProviderWidgetState extends State<ProviderWidget> {
         ),
         body: isloading
             ? Container(
-                child: LoadingAnimationWidget.twistingDots(
-                    leftDotColor: const Color(0xFF1A1A3F),
-                    rightDotColor: const Color(0xFFEA3799),
-                    size: 50))
+                child: Center(
+                child: LoadingAnimationWidget.discreteCircle(
+                    color: const Color.fromARGB(255, 15, 15, 229),
+                    secondRingColor: const Color(0xFFEA3799),
+                    thirdRingColor: const Color.fromARGB(255, 238, 238, 11),
+                    size: 100),
+              ))
             : ListView.builder(
                 padding: EdgeInsets.all(20),
-                itemCount: phoneData.length,
+                itemCount: cardData.length,
                 itemBuilder: (context, value) {
                   return Padding(
                     padding: const EdgeInsets.all(18.0),
                     child: Container(
-                      height: 250,
+                      height: 560,
                       width: 400,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
@@ -107,23 +125,59 @@ class _ProviderWidgetState extends State<ProviderWidget> {
                               height: 20,
                             ),
                             Text(
-                              '${phoneData[value].id}',
+                              '${cardData[value]?.status?.verified}',
                               style: TextStyle(fontSize: 18),
                             ),
                             Text(
-                              '${phoneData[value].name}',
+                              '${cardData[value]?.status?.sentCount}',
+                              style: TextStyle(fontSize: 18),
+                            ),
+                            Text(
+                              '${cardData[value]?.id}',
                               style: TextStyle(fontSize: 18),
                             ),
                             // Text(
-                            //   '${phoneData?.data?.color ?? phoneData?.data?.dataColor ?? phoneData?.data?.strapColour}',
+                            //   '${cardData?.data?.color ?? cardData?.data?.dataColor ?? cardData?.data?.strapColour}',
                             //   style: TextStyle(fontSize: 18),
                             // ),
                             // Text(
-                            //   '${phoneData?.data?.capacity}',
+                            //   '${cardData?.data?.capacity}',
                             //   style: TextStyle(fontSize: 18),
                             // ),
                             Text(
-                              '${phoneData[value].data?.dataColor}',
+                              '${cardData[value]?.user}',
+                              style: TextStyle(fontSize: 18),
+                            ),
+                            Text(
+                              '${cardData[value]?.text}',
+                              style: TextStyle(fontSize: 18),
+                            ),
+                            Text(
+                              '${cardData[value]?.v}',
+                              style: TextStyle(fontSize: 18),
+                            ),
+                            Text(
+                              '${cardData[value]?.source}',
+                              style: TextStyle(fontSize: 18),
+                            ),
+                            Text(
+                              '${formatDate(cardData[value]?.updatedAt)}',
+                              style: TextStyle(fontSize: 18),
+                            ),
+                            Text(
+                              '${cardData[value]?.type}',
+                              style: TextStyle(fontSize: 18),
+                            ),
+                            Text(
+                              '${formatDate(cardData[value]?.createdAt)}',
+                              style: TextStyle(fontSize: 18),
+                            ),
+                            Text(
+                              '${cardData[value]?.deleted}',
+                              style: TextStyle(fontSize: 18),
+                            ),
+                            Text(
+                              '${cardData[value]?.used}',
                               style: TextStyle(fontSize: 18),
                             ),
                             SizedBox(
@@ -138,3 +192,15 @@ class _ProviderWidgetState extends State<ProviderWidget> {
                 }));
   }
 }
+
+
+//  int val = 0;
+//           DateTime? updatedAt;
+//           final String updatedAtString =
+//               cardData[val]?.updatedAt?.toString() ?? '';
+          
+//           updatedAt = DateTime.parse(updatedAtString);
+//           String formattedDate =
+//               DateFormat('dd/MM/yyyy, hh:mm a').format(updatedAt);
+//           print(formattedDate);
+  
